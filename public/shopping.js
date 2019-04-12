@@ -9,7 +9,8 @@ $(()=>{
             for(let product of data){
                 $('#products').append(
 
-                    `<div class="card card-1">
+                    `<div class="col-xs-3 ">
+                    <div class="divM card card-1">
                     <div id="divN">
                             <a>${product.name}</a>
                     </div>
@@ -25,7 +26,9 @@ $(()=>{
                         ">Add To Cart</button>
                     
                     </div>
-                </div>`
+                    </div>
+                </div>
+                <div class="divO"></div>`
                   
                 )
             }
