@@ -33,7 +33,10 @@ $(()=>{
             $('#total').empty()
 
             //data.sort((a,b) => a.priority - b.priority)
-                console.log(data.total)
+                // console.log("==="+data.total)
+                if(data.total==undefined){
+                    alert('Please Login First')
+                }
                 $('#total').append(
                     `${data.total}`)
                   
