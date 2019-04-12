@@ -10,8 +10,7 @@ const {
   carts
 } = require('./db')
 
-var currentUser
-
+var currentUser=null
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
@@ -116,6 +115,21 @@ app.post('/cart', async (req, res) => {
   }
 })
 
+
+app.get('/login',(req, res) => {
+
+  var sts
+  if(currentUser==null){
+    sts=false
+  }
+  else{
+   sts=true
+  }
+  res.send({success:sts, message:currentUser})
+
+}) 
+
+
 app.get('/cartTotal', async (req, res) => {
   var total = 0
 // Display the list of products in cart
@@ -154,6 +168,17 @@ app.post('/checkUser',  (req, res) => {
     res.send(req.body)
 
 })})
+
+
+app.post('/logout',  (req, res) => {
+  try{
+    currentUser = null
+    res.send({success:true})
+  }
+  catch(e){
+    res.send({success:false})
+  }
+})
   
 app.delete('/product/:id', (req,res)=>{
   try{

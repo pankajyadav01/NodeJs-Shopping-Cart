@@ -36,17 +36,23 @@
 }
 </style>
 </head>
-<body>
+<body class="container">
   <br>
     <button onclick="window.location.href='/cart.html'">Cart</button>
     <button onclick="window.location.href='/vendors.html'">Vendors</button>
     <button onclick="window.location.href='/products.html'">Products</button>
     <br><br>
-    <form>
+    <form id="form1">
         <input id="name" placeholder="User Name">
         <button id="checkUser">Login</button>
         <br>
     </form>
+    <form id="form2" >
+        <label id="msg" value = ""></label>
+        <button id="logout">Logout</button>
+        <br>
+    </form>
+
     <hr>
     <div class="col-sx-12" id="products">
         

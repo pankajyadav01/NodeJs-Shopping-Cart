@@ -1,7 +1,7 @@
 var curruser
 $(()=>{
     
-    
+    checkLogin()
     refreshList()
     function refreshList(){
         $.get('/product',(data)=>{
@@ -42,9 +42,40 @@ $(()=>{
                 console.log(data)
                 curruser = data.username
                 refreshList()
-                alert()
+                checkLogin()
+            }
+        )
+    })
+    $('#logout').click(()=>{
+        $.post(
+            '/logout',
+            (data)=>{
+                if(data.success){
+                    checkLogin()
+                }
             }
         )
     })
 
+    function checkLogin(){
+    
+        $.get('/login',(data)=>{
+            if(data.success){
+                $('#form1').hide()
+                $('#form2').show()
+                console.log(data.message)
+                if(data.message!=null){
+                    $('#msg').text("Welcome "+data.message)
+                }
+                
+            }
+            else{
+                console.log('here')
+                $('#form1').show()
+                $('#form2').hide()
+            }
+        })
+    }
+
 })
+
