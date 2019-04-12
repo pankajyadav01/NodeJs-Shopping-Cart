@@ -184,8 +184,10 @@ app.delete('/vendor/:id', (req,res)=>{
     res.send({success: false})
   }
 })
-
+const PORT = process.env.PORT || 4444
 db.sync()
     .then(()=>{
-        app.listen(4444)
+      app.listen(PORT, () => {
+        console.log(`Started on http://localhost:${PORT}`)
+      })
     })
