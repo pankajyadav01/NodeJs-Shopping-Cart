@@ -11,6 +11,7 @@ const {
 } = require('./db')
 
 var currentUser=null
+var currUserId=null
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
@@ -25,24 +26,43 @@ app.get('/vendor',async (req,res)=>{
 
 app.get('/cart',async (req,res)=>{
   console.log('in cart get')
-  const productId= await carts.findAll({
-    where: {
-        username: currentUser //array
-      },
-      attributes: ['productId'], //object
+  // const productId= await carts.findAll({
+  //   where: {
+  //       username: currentUser //array
+  //     },
+  //     attributes: ['productId'], //object
+  // })
+
+  // var prid=[]
+  // for( pid of productId){
+  //   prid.push(pid.productId)
+  // }
+  // const list = await products.findAll({
+  //   where:{
+  //     id:prid
+  //   }
+  // })
+  // console.log(list)
+  // res.send(list)
+
+
+
+
+
+  await carts.findAll({
+    where : {username : currentUser},
+    include : [products]
+}).then(products => {
+  console.log('**************************************************************************8')
+  res.send(products)
+    
   })
 
-  var prid=[]
-  for( pid of productId){
-    prid.push(pid.productId)
-  }
-  const list = await products.findAll({
-    where:{
-      id:prid
-    }
-  })
-  console.log(list)
-  res.send(list)
+
+
+
+
+
 })
 
 app.get('/product',async (req,res)=>{
@@ -165,6 +185,13 @@ app.post('/checkUser',  (req, res) => {
       })
     }
     currentUser = req.body.username
+    const x =  users.findOne({where : {username : req.body.username}})
+    currUserId = x.id
+    console.log('====================================================================================')
+    console.log('====================================================================================')
+    console.log(x)
+    console.log('====================================================================================')
+    console.log('====================================================================================')
     res.send(req.body)
 
 })})

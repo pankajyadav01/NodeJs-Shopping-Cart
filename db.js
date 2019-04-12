@@ -78,6 +78,9 @@ const carts = db.define('cart',{
 
 
 vendors.hasMany(products,{onDelete: 'cascade'})
+carts.belongsTo(products, {onDelete: 'cascade'})
+carts.belongsTo(users, {onDelete: 'cascade'})
+users.hasMany(carts, {onDelete: 'cascade'})
 products.hasMany(carts,{onDelete: 'cascade'})
 
 module.exports = {
