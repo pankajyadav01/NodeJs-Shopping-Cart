@@ -56,8 +56,9 @@ function refreshList(){
             $('#productList').append(
                 `<div class="col-xs-12">
                 <label class="col-xs-2">${count}</label>
-                <label class="col-xs-7">${product.name}</label>
-                <button onclick="deleteProduct(${product.id})" class="col-xs-3">Delete</label>
+                <label class="col-xs-5">${product.name}</label>
+                <label class="col-xs-3">${product.price}</label>
+                <button onclick="deleteProduct(${product.id})" class="col-xs-2">Delete</label>
               </div>
               <br>
               <hr>`
