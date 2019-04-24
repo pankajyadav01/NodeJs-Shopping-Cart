@@ -8,10 +8,42 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
     
     <title>Document</title>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+    
 </head>
-<body class="container"><br>
-  <button onclick="window.location.href='/index.html'">Home</button>
-    <br><br>
+<body class="container">
+  <ul>
+  <li><a href="/index.html">Home</a></li>
+</ul>
+<br>
     <h1>My Cart</h1><br>
     <div class="col-xs-12">
         <label class="col-xs-2">S. No.</label>

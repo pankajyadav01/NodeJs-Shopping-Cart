@@ -15,8 +15,8 @@ $(()=>{
                     <label class="col-xs-2">${count}</label>
                     <label class="col-xs-4">${item.product.name}</label>
                     <label class="col-xs-2">${item.qty}</label>
-                    <label class="col-xs-2">${item.product.price}</label>
-                    <label class="col-xs-2">${net}</label>
+                    <label class="col-xs-2">Rs. ${item.product.price}</label>
+                    <label class="col-xs-2">Rs. ${net}</label>
                     
                   </div>
                   <br>
@@ -38,7 +38,7 @@ $(()=>{
                     alert('Please Login First')
                 }
                 $('#total').append(
-                    `${data.total}`)
+                    `Rs. ${data.total}`)
                   
             
             

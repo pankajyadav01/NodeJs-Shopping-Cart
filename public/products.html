@@ -8,10 +8,41 @@
     
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
     <title>Document</title>
+    <style>
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+              background-color: #333;
+            }
+            
+            li {
+              float: left;
+            }
+            
+            li a {
+              display: block;
+              color: white;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+            }
+            
+            li a:hover:not(.active) {
+              background-color: #111;
+            }
+            
+            .active {
+              background-color: #4CAF50;
+            }
+            </style>
 </head>
-<body class="container"><br>
-    <button onclick="window.location.href='/index.html'">Home</button>
-    <br><br>
+<body class="container">
+        <ul>
+                <li><a href="/index.html">Home</a></li>
+              </ul>
+    <br>
     <form>
         <input id="name" name="name" placeholder="Product name" type="text">
         <input id="price" name="price" placeholder="Price" type="number">
@@ -24,8 +55,9 @@
 <strong>
 <div class="col-xs-12">
     <label class="col-xs-2">S. No.</label>
-    <label class="col-xs-5">Product Name</label>
-    <label class="col-xs-3">Price</label>
+    <label class="col-xs-3">Product Name</label>
+    <label class="col-xs-3">Vendor Name</label>
+    <label class="col-xs-2">Price</label>
     <label class="col-xs-2">Actions</label>
   </div></strong>
   <br>
