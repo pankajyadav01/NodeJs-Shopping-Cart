@@ -38,7 +38,7 @@ $(()=>{
                     alert('Please Login First')
                 }
                 $('#total').append(
-                    `Rs. ${data.total}`)
+                    `${data.total}`)
                   
             
             
